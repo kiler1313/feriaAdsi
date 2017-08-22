@@ -5,6 +5,11 @@
  */
 package com.feriaAdsi.modelo.controllers;
 
+import com.feriaAdsi.modelo.entities.Torneo;
+import com.feriaAdsi.modelo.facade.util.MessageUtil;
+import com.feriaAdsi.modelo.facades.TorneoFacadeLocal;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
@@ -16,10 +21,37 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class TorneoRegistroController {
 
-    /**
-     * Creates a new instance of TorneoRegistroController
-     */
+    @EJB 
+    private TorneoFacadeLocal tfl;
+    
+    private Torneo nuevoTorneo;
+    
     public TorneoRegistroController() {
+        
     }
+    @PostConstruct
+    public void init(){
+    nuevoTorneo = new Torneo();
+    
+    }
+
+    public Torneo getNuevoTorneo() {
+        return nuevoTorneo;
+    }
+
+    public void setNuevoTorneo(Torneo nuevoTorneo) {
+        this.nuevoTorneo = nuevoTorneo;
+    }
+    
+    public void registrar(){
+        if (nuevoTorneo != null) {
+            
+         tfl.create(nuevoTorneo);
+            MessageUtil.enviarMensajeInformacionGlobal("Torneo Creado Satisfactoriamente","Se ha registrado el torneo correctamente");
+        }
+        
+    }
+    
+    
     
 }
