@@ -1,16 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>Bienvenido</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-
-        <!-- Facebook and Twitter integration -->
-
 
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,400italic,700' rel='stylesheet' type='text/css'/>
 
@@ -164,12 +161,12 @@
                                             <b>HTML5 y CSS3 Nuestros mejores aliados </b></span>
                                     </div>
                                     <div class="content">
-                                       
+
                                         <div>
-                                           La fusión entre el HyperText Markup Language (Estructura general de las paginas web) y las Cascading StyleSheets (El estilo de la pagina, si, las cosas bonitas)
-                                           le dan forma a cualquier pagina web básica o profesional (De las animaciones y efectos especiales se encarga JavaScript) y son nuestros pinceles a la hora de transformar una simple pagina web, en arte conceptual.
+                                            La fusión entre el HyperText Markup Language (Estructura general de las paginas web) y las Cascading StyleSheets (El estilo de la pagina, si, las cosas bonitas)
+                                            le dan forma a cualquier pagina web básica o profesional (De las animaciones y efectos especiales se encarga JavaScript) y son nuestros pinceles a la hora de transformar una simple pagina web, en arte conceptual.
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -181,12 +178,12 @@
                                             <b>Java, Php, C# Engranajes del sistema</b></span>
                                     </div>
                                     <div class="content">
-                                        
+
                                         <div>
-                                           El diseño web solo es la fachada de la casa, hay que construirla por dentro y de eso se encargan los lenguajes de programación,
-                                           estos permiten ir mas allá de multiples páginas html bonitas y bien hechas a sistemas complejos que piden, almacenan y muestran tus datos de forma automatica y segura, con solo llenar unos campos y presionar un botón.
+                                            El diseño web solo es la fachada de la casa, hay que construirla por dentro y de eso se encargan los lenguajes de programación,
+                                            estos permiten ir mas allá de multiples páginas html bonitas y bien hechas a sistemas complejos que piden, almacenan y muestran tus datos de forma automatica y segura, con solo llenar unos campos y presionar un botón.
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -198,13 +195,13 @@
                                             <b>MySQL almacenando nuestros datos desde 1995</b></span>
                                     </div>
                                     <div class="content">
-                                       
+
                                         <div>
-                                           ¿No te haz preguntado donde quedan los datos que registraste aquella vez en esa página? ... Pues si, van a una base de datos que almacena, inserta, lista y modifica información que quieras guardar en ella.
-                                           Se puede considerar como la base de un sistema de información (La base y las columnas de una casa) para que este funcione, porque sin datos desaparece el sistema.
-                                           
+                                            ¿No te haz preguntado donde quedan los datos que registraste aquella vez en esa página? ... Pues si, van a una base de datos que almacena, inserta, lista y modifica información que quieras guardar en ella.
+                                            Se puede considerar como la base de un sistema de información (La base y las columnas de una casa) para que este funcione, porque sin datos desaparece el sistema.
+
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -232,24 +229,41 @@
                             ¡Que esperas para dejar tu huella por el septimo piso, proclamandote el mejor en videojuegos!</p>
 
                     </div>
-                    <div class='split-pane col-xs-12 col-sm-6 uiux-side'>
+                    <div class='split-pane col-xs-12 col-sm-4 uiux-side'>
                         <div style="margin-top: 100px; color: green;">
 
                             <div class='text-content'>
                                 <div style="color: white;"><b>¡Ven y participa!</b></div>
                                 <div class='big' style="color: white;"><b>TORNEO FIFA 2017</b></div>
                             </div>
-                            <h:commandButton class="btn btn-success" value="¡Registrate" />
+                            <h:form>
+                                
+                            <h:commandButton class="btn btn-success" value="¡Registrate" action="formfifa.xhtml"/>
+                            </h:form>
                         </div>
                     </div>
-                    <div class='split-pane col-xs-12 col-sm-6 frontend-side'>
-                        <div style="margin-top: 100px;">
-
+                    <div class='split-pane col-xs-12 col-sm-4 frontend-side'>
+                        <div style="margin-top: 100px; height: 245px;" >
                             <div class='text-content'>
                                 <div style="color: white;"><b>¡Ven y participa!</b></div>
                                 <div class='big' style="color: white;"><b>TORNEO SUPER SMASH BROS 64</b></div>
                             </div>
-                            <h:commandButton class="btn btn-success" value="¡Registrate" />
+
+                            <h:form>
+                                <h:commandButton class="btn btn-success" value="¡Registrate" action="formssb.xhtml"/>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class='split-pane col-xs-12 col-sm-4 halo-side'>
+                        <div style="margin-top: 100px; color: green; height: 245px;">
+
+                            <div class='text-content'>
+                                <div style="color: white;"><b>¡Ven y participa!</b></div>
+                                <div class='big' style="color: white;"><b>TORNEO HALO REACH</b></div>
+                            </div>
+                            <h:form>
+                            <h:commandButton class="btn btn-success" value="¡Registrate" action="formhalo.xhtml"/>
+                            </h:form>
                         </div>
                     </div>
 
