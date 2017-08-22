@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Partido.findAll", query = "SELECT p FROM Partido p"),
-    @NamedQuery(name = "Partido.findByIdpartidos", query = "SELECT p FROM Partido p WHERE p.idpartidos = :idpartidos"),
+    @NamedQuery(name = "Partido.findByIdPartido", query = "SELECT p FROM Partido p WHERE p.idPartido = :idPartido"),
     @NamedQuery(name = "Partido.findByResultado1", query = "SELECT p FROM Partido p WHERE p.resultado1 = :resultado1"),
     @NamedQuery(name = "Partido.findByResultado2", query = "SELECT p FROM Partido p WHERE p.resultado2 = :resultado2")})
 public class Partido implements Serializable {
@@ -37,32 +37,32 @@ public class Partido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idpartidos")
-    private Integer idpartidos;
+    @Column(name = "idPartido")
+    private Integer idPartido;
     @Column(name = "resultado1")
     private Integer resultado1;
     @Column(name = "resultado2")
     private Integer resultado2;
-    @JoinColumn(name = "jugador1", referencedColumnName = "idjugadores_has_torneos")
+    @JoinColumn(name = "jugador1", referencedColumnName = "idInscripcion")
     @ManyToOne(optional = false)
-    private JugadorHasTorneo jugador1;
-    @JoinColumn(name = "jugador2", referencedColumnName = "idjugadores_has_torneos")
+    private Inscripcion jugador1;
+    @JoinColumn(name = "jugador2", referencedColumnName = "idInscripcion")
     @ManyToOne(optional = false)
-    private JugadorHasTorneo jugador2;
+    private Inscripcion jugador2;
 
     public Partido() {
     }
 
-    public Partido(Integer idpartidos) {
-        this.idpartidos = idpartidos;
+    public Partido(Integer idPartido) {
+        this.idPartido = idPartido;
     }
 
-    public Integer getIdpartidos() {
-        return idpartidos;
+    public Integer getIdPartido() {
+        return idPartido;
     }
 
-    public void setIdpartidos(Integer idpartidos) {
-        this.idpartidos = idpartidos;
+    public void setIdPartido(Integer idPartido) {
+        this.idPartido = idPartido;
     }
 
     public Integer getResultado1() {
@@ -81,26 +81,26 @@ public class Partido implements Serializable {
         this.resultado2 = resultado2;
     }
 
-    public JugadorHasTorneo getJugador1() {
+    public Inscripcion getJugador1() {
         return jugador1;
     }
 
-    public void setJugador1(JugadorHasTorneo jugador1) {
+    public void setJugador1(Inscripcion jugador1) {
         this.jugador1 = jugador1;
     }
 
-    public JugadorHasTorneo getJugador2() {
+    public Inscripcion getJugador2() {
         return jugador2;
     }
 
-    public void setJugador2(JugadorHasTorneo jugador2) {
+    public void setJugador2(Inscripcion jugador2) {
         this.jugador2 = jugador2;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idpartidos != null ? idpartidos.hashCode() : 0);
+        hash += (idPartido != null ? idPartido.hashCode() : 0);
         return hash;
     }
 
@@ -111,7 +111,7 @@ public class Partido implements Serializable {
             return false;
         }
         Partido other = (Partido) object;
-        if ((this.idpartidos == null && other.idpartidos != null) || (this.idpartidos != null && !this.idpartidos.equals(other.idpartidos))) {
+        if ((this.idPartido == null && other.idPartido != null) || (this.idPartido != null && !this.idPartido.equals(other.idPartido))) {
             return false;
         }
         return true;
@@ -119,7 +119,7 @@ public class Partido implements Serializable {
 
     @Override
     public String toString() {
-        return "com.feriaAdsi.modelo.entities.Partido[ idpartidos=" + idpartidos + " ]";
+        return "com.feriaAdsi.modelo.entities.Partido[ idPartido=" + idPartido + " ]";
     }
     
 }

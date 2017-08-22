@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Torneo.findAll", query = "SELECT t FROM Torneo t"),
-    @NamedQuery(name = "Torneo.findByIdtorneo", query = "SELECT t FROM Torneo t WHERE t.idtorneo = :idtorneo"),
+    @NamedQuery(name = "Torneo.findByIdTorneo", query = "SELECT t FROM Torneo t WHERE t.idTorneo = :idTorneo"),
     @NamedQuery(name = "Torneo.findByTipo", query = "SELECT t FROM Torneo t WHERE t.tipo = :tipo")})
 public class Torneo implements Serializable {
 
@@ -39,27 +39,27 @@ public class Torneo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idtorneo")
-    private Integer idtorneo;
+    @Column(name = "idTorneo")
+    private Integer idTorneo;
     @Size(max = 45)
     @Column(name = "tipo")
     private String tipo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "torneo")
-    private List<JugadorHasTorneo> jugadorHasTorneoList;
+    private List<Inscripcion> inscripcionList;
 
     public Torneo() {
     }
 
-    public Torneo(Integer idtorneo) {
-        this.idtorneo = idtorneo;
+    public Torneo(Integer idTorneo) {
+        this.idTorneo = idTorneo;
     }
 
-    public Integer getIdtorneo() {
-        return idtorneo;
+    public Integer getIdTorneo() {
+        return idTorneo;
     }
 
-    public void setIdtorneo(Integer idtorneo) {
-        this.idtorneo = idtorneo;
+    public void setIdTorneo(Integer idTorneo) {
+        this.idTorneo = idTorneo;
     }
 
     public String getTipo() {
@@ -71,18 +71,18 @@ public class Torneo implements Serializable {
     }
 
     @XmlTransient
-    public List<JugadorHasTorneo> getJugadorHasTorneoList() {
-        return jugadorHasTorneoList;
+    public List<Inscripcion> getInscripcionList() {
+        return inscripcionList;
     }
 
-    public void setJugadorHasTorneoList(List<JugadorHasTorneo> jugadorHasTorneoList) {
-        this.jugadorHasTorneoList = jugadorHasTorneoList;
+    public void setInscripcionList(List<Inscripcion> inscripcionList) {
+        this.inscripcionList = inscripcionList;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idtorneo != null ? idtorneo.hashCode() : 0);
+        hash += (idTorneo != null ? idTorneo.hashCode() : 0);
         return hash;
     }
 
@@ -93,7 +93,7 @@ public class Torneo implements Serializable {
             return false;
         }
         Torneo other = (Torneo) object;
-        if ((this.idtorneo == null && other.idtorneo != null) || (this.idtorneo != null && !this.idtorneo.equals(other.idtorneo))) {
+        if ((this.idTorneo == null && other.idTorneo != null) || (this.idTorneo != null && !this.idTorneo.equals(other.idTorneo))) {
             return false;
         }
         return true;
@@ -101,7 +101,7 @@ public class Torneo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.feriaAdsi.modelo.entities.Torneo[ idtorneo=" + idtorneo + " ]";
+        return "com.feriaAdsi.modelo.entities.Torneo[ idTorneo=" + idTorneo + " ]";
     }
     
 }

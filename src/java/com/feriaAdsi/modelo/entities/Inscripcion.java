@@ -28,26 +28,26 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author APRENDIZ
  */
 @Entity
-@Table(name = "jugadores_has_torneos")
+@Table(name = "inscripciones")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JugadorHasTorneo.findAll", query = "SELECT j FROM JugadorHasTorneo j"),
-    @NamedQuery(name = "JugadorHasTorneo.findByIdjugadoresHasTorneos", query = "SELECT j FROM JugadorHasTorneo j WHERE j.idjugadoresHasTorneos = :idjugadoresHasTorneos"),
-    @NamedQuery(name = "JugadorHasTorneo.findByGanadores", query = "SELECT j FROM JugadorHasTorneo j WHERE j.ganadores = :ganadores")})
-public class JugadorHasTorneo implements Serializable {
+    @NamedQuery(name = "Inscripcion.findAll", query = "SELECT i FROM Inscripcion i"),
+    @NamedQuery(name = "Inscripcion.findByIdInscripcion", query = "SELECT i FROM Inscripcion i WHERE i.idInscripcion = :idInscripcion"),
+    @NamedQuery(name = "Inscripcion.findByGanador", query = "SELECT i FROM Inscripcion i WHERE i.ganador = :ganador")})
+public class Inscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idjugadores_has_torneos")
-    private Integer idjugadoresHasTorneos;
-    @Column(name = "ganadores")
-    private Integer ganadores;
+    @Column(name = "idInscripcion")
+    private Integer idInscripcion;
+    @Column(name = "ganador")
+    private Integer ganador;
     @JoinColumn(name = "jugador", referencedColumnName = "documento")
     @ManyToOne(optional = false)
     private Jugador jugador;
-    @JoinColumn(name = "torneo", referencedColumnName = "idtorneo")
+    @JoinColumn(name = "torneo", referencedColumnName = "idTorneo")
     @ManyToOne(optional = false)
     private Torneo torneo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jugador1")
@@ -55,27 +55,27 @@ public class JugadorHasTorneo implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jugador2")
     private List<Partido> partidoList1;
 
-    public JugadorHasTorneo() {
+    public Inscripcion() {
     }
 
-    public JugadorHasTorneo(Integer idjugadoresHasTorneos) {
-        this.idjugadoresHasTorneos = idjugadoresHasTorneos;
+    public Inscripcion(Integer idInscripcion) {
+        this.idInscripcion = idInscripcion;
     }
 
-    public Integer getIdjugadoresHasTorneos() {
-        return idjugadoresHasTorneos;
+    public Integer getIdInscripcion() {
+        return idInscripcion;
     }
 
-    public void setIdjugadoresHasTorneos(Integer idjugadoresHasTorneos) {
-        this.idjugadoresHasTorneos = idjugadoresHasTorneos;
+    public void setIdInscripcion(Integer idInscripcion) {
+        this.idInscripcion = idInscripcion;
     }
 
-    public Integer getGanadores() {
-        return ganadores;
+    public Integer getGanador() {
+        return ganador;
     }
 
-    public void setGanadores(Integer ganadores) {
-        this.ganadores = ganadores;
+    public void setGanador(Integer ganador) {
+        this.ganador = ganador;
     }
 
     public Jugador getJugador() {
@@ -115,18 +115,18 @@ public class JugadorHasTorneo implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idjugadoresHasTorneos != null ? idjugadoresHasTorneos.hashCode() : 0);
+        hash += (idInscripcion != null ? idInscripcion.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof JugadorHasTorneo)) {
+        if (!(object instanceof Inscripcion)) {
             return false;
         }
-        JugadorHasTorneo other = (JugadorHasTorneo) object;
-        if ((this.idjugadoresHasTorneos == null && other.idjugadoresHasTorneos != null) || (this.idjugadoresHasTorneos != null && !this.idjugadoresHasTorneos.equals(other.idjugadoresHasTorneos))) {
+        Inscripcion other = (Inscripcion) object;
+        if ((this.idInscripcion == null && other.idInscripcion != null) || (this.idInscripcion != null && !this.idInscripcion.equals(other.idInscripcion))) {
             return false;
         }
         return true;
@@ -134,7 +134,7 @@ public class JugadorHasTorneo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.feriaAdsi.modelo.entities.JugadorHasTorneo[ idjugadoresHasTorneos=" + idjugadoresHasTorneos + " ]";
+        return "com.feriaAdsi.modelo.entities.Inscripcion[ idInscripcion=" + idInscripcion + " ]";
     }
     
 }

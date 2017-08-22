@@ -44,10 +44,14 @@ public class Jugador implements Serializable {
     @NotNull
     @Column(name = "documento")
     private Long documento;
-    @Size(max = 45)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "apellido")
     private String apellido;
     @Column(name = "ficha")
@@ -56,13 +60,19 @@ public class Jugador implements Serializable {
     @Column(name = "programa")
     private String programa;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jugador")
-    private List<JugadorHasTorneo> jugadorHasTorneoList;
+    private List<Inscripcion> inscripcionList;
 
     public Jugador() {
     }
 
     public Jugador(Long documento) {
         this.documento = documento;
+    }
+
+    public Jugador(Long documento, String nombre, String apellido) {
+        this.documento = documento;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
     public Long getDocumento() {
@@ -106,12 +116,12 @@ public class Jugador implements Serializable {
     }
 
     @XmlTransient
-    public List<JugadorHasTorneo> getJugadorHasTorneoList() {
-        return jugadorHasTorneoList;
+    public List<Inscripcion> getInscripcionList() {
+        return inscripcionList;
     }
 
-    public void setJugadorHasTorneoList(List<JugadorHasTorneo> jugadorHasTorneoList) {
-        this.jugadorHasTorneoList = jugadorHasTorneoList;
+    public void setInscripcionList(List<Inscripcion> inscripcionList) {
+        this.inscripcionList = inscripcionList;
     }
 
     @Override

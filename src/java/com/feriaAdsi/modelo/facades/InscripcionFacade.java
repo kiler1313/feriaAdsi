@@ -5,7 +5,7 @@
  */
 package com.feriaAdsi.modelo.facades;
 
-import com.feriaAdsi.modelo.entities.JugadorHasTorneo;
+import com.feriaAdsi.modelo.entities.Inscripcion;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author APRENDIZ
  */
 @Stateless
-public class JugadorHasTorneoFacade extends AbstractFacade<JugadorHasTorneo> implements JugadorHasTorneoFacadeLocal {
+public class InscripcionFacade extends AbstractFacade<Inscripcion> implements InscripcionFacadeLocal {
 
     @PersistenceContext(unitName = "feriaAdsiPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class JugadorHasTorneoFacade extends AbstractFacade<JugadorHasTorneo> imp
         return em;
     }
 
-    public JugadorHasTorneoFacade() {
-        super(JugadorHasTorneo.class);
+    public InscripcionFacade() {
+        super(Inscripcion.class);
     }
     
 }
