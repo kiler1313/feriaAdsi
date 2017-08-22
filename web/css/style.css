@@ -300,7 +300,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .gtco-video:hover .overlay {
   background: rgba(0, 0, 0, 0.1);
 }
-. .gtco-video:hover a {
+.gtco-video:hover a {
   position: relative;
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
@@ -1413,3 +1413,5 @@ form label {
   width: 350px;
   height: 250px;
 }
+
+
