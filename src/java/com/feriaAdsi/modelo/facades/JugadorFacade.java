@@ -9,6 +9,7 @@ import com.feriaAdsi.modelo.entities.Jugador;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -27,6 +28,20 @@ public class JugadorFacade extends AbstractFacade<Jugador> implements JugadorFac
 
     public JugadorFacade() {
         super(Jugador.class);
+    }
+
+    @Override
+    public Jugador findByDocumento(Long documento) {
+
+        try {
+            getEntityManager().getEntityManagerFactory().getCache().evictAll();
+            TypedQuery<Jugador> j = getEntityManager().createNamedQuery("Jugador.findByDocumento", Jugador.class);
+            j.setParameter("documento", documento);
+            return j.getSingleResult();
+        } catch (Exception e) {
+            System.out.println("No se pudo allar nada");
+            return null;
+        }
     }
     
 }

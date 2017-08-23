@@ -30,4 +30,6 @@ public interface JugadorFacadeLocal {
 
     int count();
     
+    Jugador findByDocumento(Long documento);
+    
 }

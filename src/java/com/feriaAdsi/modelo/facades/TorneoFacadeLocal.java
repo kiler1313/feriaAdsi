@@ -30,4 +30,6 @@ public interface TorneoFacadeLocal {
 
     int count();
     
+    List<Torneo> findByTipo(String tipo);
+    
 }
