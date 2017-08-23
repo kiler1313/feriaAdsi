@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `feriaadsi` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `feriaadsi`;
--- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: feriaadsi
 -- ------------------------------------------------------
--- Server version	5.6.20
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -85,6 +85,7 @@ CREATE TABLE `partidos` (
   `resultado1` int(11) DEFAULT NULL,
   `jugador2` int(11) NOT NULL,
   `resultado2` int(11) DEFAULT NULL,
+  `ronda` varchar(45) NOT NULL,
   PRIMARY KEY (`idPartido`),
   KEY `fk_partidos_jugadores_has_torneos1_idx` (`jugador1`),
   KEY `fk_partidos_jugadores_has_torneos2_idx` (`jugador2`),
@@ -142,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-22  8:43:41
+-- Dump completed on 2017-08-22 22:13:25

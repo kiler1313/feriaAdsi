@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,6 +45,11 @@ public class Partido implements Serializable {
     private Integer resultado1;
     @Column(name = "resultado2")
     private Integer resultado2;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "ronda")
+    private String ronda;
     @JoinColumn(name = "jugador1", referencedColumnName = "idInscripcion")
     @ManyToOne(optional = false)
     private Inscripcion jugador1;
@@ -93,6 +100,15 @@ public class Partido implements Serializable {
         return jugador2;
     }
 
+    public String getRonda() {
+        return ronda;
+    }
+
+    public void setRonda(String ronda) {
+        this.ronda = ronda;
+    }
+    
+    
     public void setJugador2(Inscripcion jugador2) {
         this.jugador2 = jugador2;
     }
