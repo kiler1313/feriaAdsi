@@ -8,7 +8,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -43,25 +44,32 @@ and open the template in the editor.
         
         <div id="fondo-form" style="margin-left: 30%; width: 40%; height: 80%; background-color: red; margin-top: 35px; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
             <legend style="width: 90%; margin-left: 5%; color: #fff;">Super Smash Bros - Registrarse</legend>
+            <b:messages showDetail="true" showSummary="true" globalOnly="true"/>
             <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 25%; color: #fff;">
                 
                 <h:outputText value="No. documento: "/>
-                <b:inputText class=" input-form" placeholder="No. documento"/>
+                <b:inputText class=" input-form" placeholder="No. documento" value="#{jugadorRegistroSmashController.nuevoJugador.documento}"/>
                 
                 <h:outputText value="Nombres: "/>
-                <b:inputText class=" input-form" placeholder="Nombres"/>
+                <b:inputText class=" input-form" placeholder="Nombres" value="#{jugadorRegistroSmashController.nuevoJugador.nombre}"/>
                 
                 <h:outputText value="Apellidos: "/>
-                <b:inputText class=" input-form" placeholder="Apellidos"/>
+                <b:inputText class=" input-form" placeholder="Apellidos" value="#{jugadorRegistroSmashController.nuevoJugador.apellido}"/>
                 
                 <h:outputText value="Ficha: "/>
-                <b:inputText class=" input-form" placeholder="Ficha"/>
+                <b:inputText class=" input-form" placeholder="Ficha" value="#{jugadorRegistroSmashController.nuevoJugador.ficha}"/>
                 
                 <h:outputText value="Programa: "/>
-                <b:inputText class=" input-form" placeholder="Programa"/>
+                <b:inputText class=" input-form" placeholder="Programa" value="#{jugadorRegistroSmashController.nuevoJugador.programa}"/>
+                
+                 <h:outputText value="Torneo: "/>
+                 <b:selectOneMenu class=" input-form"  value="#{jugadorRegistroSmashController.torneoSeleccionado}" required="true" style="height: 100%;" >
+                    <f:selectItems value="#{jugadorRegistroSmashController.listaTorneos}" var="t" itemLabel="Número de torneo #{t.idTorneo} "/>
+                
+                </b:selectOneMenu>
                 <br></br>
-                <b:commandButton class="btn btn-default" value="Registrarse"/>
-                <b:commandButton class="btn btn-success" value="Volver"/>
+                <b:commandButton class="btn btn-default" value="Registrarse" action="#{jugadorRegistroSmashController.registrar()}"/>
+                <h:link class="btn btn-success" value="Volver" outcome="index.xhtml"/>
                 
             </h:form>
         </div>
