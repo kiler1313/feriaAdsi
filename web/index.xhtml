@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -45,10 +46,11 @@
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
-                                <li class="active"><a href="index.html">Inicio</a></li>
+                                <li class="active"><a href="index.xhtml">Inicio</a></li>
+                                <li><a href="#gtco-login">Inicio de sesión</a></li>
                                 <li><a href="#gtco-services">¿Que es ADSI?</a></li>
                                 <li><a href="#gtco-subscribe">Inscriberse</a></li>
-                                <li><a href="#gtco-subscribe">Inicio de sesión</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -143,6 +145,51 @@
         </div>
 
 
+
+
+
+        <div id="gtco-login">
+            <div class="gtco-container" >
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+
+                        <h2>Ingresar</h2>
+                        <div id="fondo-form" style="background-color: #666; border-radius: 10px 10px 10px 10px; width: 70%; height: 60%; margin-left: 15%;" >
+                            
+                         <h:form style="height: 300px; width: 600px; color: #fff; margin-top: 10px;">
+                            <h:outputText style="margin-left:  -60px;" value="Correo Electonico: "/>
+                            <b:inputText style="margin-left: 20%;" placeholder="Example@gmail.com" value="#{loginController.correo}"/>
+                            <h:outputText style="margin-left:  -60px;" value="Contraseña:"/>
+                            <b:inputSecret style="margin-left: 20%;" placeholder="Contraseña" value="#{loginController.contrasena}"/>
+                            <br></br>
+                            <b:commandButton style="margin-left: -40px;" class="btn btn-success" value="Ingresar" action="#{loginController.iniciarSesion()}"/>
+                        </h:form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="gototop js-top">
+                <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+
+            </div>
+        </div> 
+
+
+
+
+
+
+
+
+
+
         <div id="gtco-services">
             <div class="gtco-container">
                 <div class="row animate-box">
@@ -219,7 +266,9 @@
                 <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 
             </div>
-        </div> 
+        </div>
+
+
         <div id="gtco-subscribe">
             <div class="gtco-container">
                 <div class="row animate-box">
@@ -237,8 +286,8 @@
                                 <div class='big' style="color: white;"><b>TORNEO FIFA 2017</b></div>
                             </div>
                             <h:form>
-                                
-                            <h:commandButton class="btn btn-success" value="¡Registrate" action="formfifa.xhtml"/>
+
+                                <h:commandButton class="btn btn-success" value="¡Registrate" action="formfifa.xhtml"/>
                             </h:form>
                         </div>
                     </div>
@@ -262,7 +311,7 @@
                                 <div class='big' style="color: white;"><b>TORNEO HALO REACH</b></div>
                             </div>
                             <h:form>
-                            <h:commandButton class="btn btn-success" value="¡Registrate" action="formhalo.xhtml"/>
+                                <h:commandButton class="btn btn-success" value="¡Registrate" action="formhalo.xhtml"/>
                             </h:form>
                         </div>
                     </div>
