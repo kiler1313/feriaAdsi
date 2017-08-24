@@ -6,9 +6,12 @@
 package com.feriaAdsi.modelo.facades;
 
 import com.feriaAdsi.modelo.entities.Inscripcion;
+import com.feriaAdsi.modelo.entities.Torneo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -27,6 +30,22 @@ public class InscripcionFacade extends AbstractFacade<Inscripcion> implements In
 
     public InscripcionFacade() {
         super(Inscripcion.class);
+    }
+
+    @Override
+    public List<Inscripcion> findByTorneo(Torneo torneo) {
+        
+        try {
+            getEntityManager().getEntityManagerFactory().getCache().evictAll();
+            TypedQuery<Inscripcion> i = getEntityManager().createNamedQuery("Inscripcion.findByTorneo", Inscripcion.class);
+            i.setParameter("torneo", torneo);
+            return i.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Fallo la busqueda de la inscripcion por torneo");
+            return null;
+        }
+
     }
     
 }
