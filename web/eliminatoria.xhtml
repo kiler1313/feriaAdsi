@@ -46,17 +46,16 @@ and open the template in the editor.
                 <b:messages globalOnly="true" showDetail="true" showSummary="true"/>
         <div id="fondo-form" style="margin-left: 30%; width: 40%; height: 80%; background-color: #666666; margin-top: 15%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
             <legend style="width: 90%; margin-left: 5%; color: #fff;">Nuevo Torneo</legend>
-            <c:forEach items="" />
             <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 25%; color: #fff;">
-                <h:outputText value="Juego"/>
-                <b:selectOneMenu class=" input-form" style="height: 100%;" value="#{torneoRegistroController.nuevoTorneo.tipo}">
-                    <f:selectItem itemValue="Super Smash Bros 64" itemLabel="Super Smash Bros 64"/>
-                    <f:selectItem itemValue="Fifa 2017" itemLabel="Fifa 2017"/>
-                    <f:selectItem itemValue="Halo Reach" itemLabel="Halo Reach"/>
-                </b:selectOneMenu>
+                <c:forEach items="#{partidosRegistroController.jugadores}" var="j">
+                    <h:outputText value="#{j.jugador.nombre}"/>
+                    <h:outputText value="#{j.jugador.nombre}"/>
+                    
+                </c:forEach>
+                
                 
                 <br></br>
-                <b:commandButton class="btn btn-default" value="Registrarse" action="#{torneoRegistroController.registrar()}"/>
+                
                 <h:link class="btn btn-success" value="Volver" outcome="index.xhtml"/>
                 
             </h:form>

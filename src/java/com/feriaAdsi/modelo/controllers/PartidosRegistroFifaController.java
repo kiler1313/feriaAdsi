@@ -68,6 +68,16 @@ public class PartidosRegistroFifaController {
     public void setTorneoSeleccionado(Torneo torneoSeleccionado) {
         this.torneoSeleccionado = torneoSeleccionado;
     }
+
+    public List<Inscripcion> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Inscripcion> jugadores) {
+        this.jugadores = jugadores;
+    }
+    
+    
     
     
    
