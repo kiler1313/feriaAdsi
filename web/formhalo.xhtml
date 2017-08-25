@@ -65,7 +65,7 @@ and open the template in the editor.
                 
                 <h:outputText value="Torneo: "/>
                 <b:selectOneMenu class=" input-form"  value="#{jugadorRegistroHaloController.torneoSeleccionado}" required="true" style="height: 100%;" >
-                    <f:selectItems value="#{jugadorRegistroHaloController.listaTorneos}" var="t" itemLabel="Número de torneo #{t.idTorneo} "/>
+                    <f:selectItems value="#{jugadorRegistroHaloController.listaTorneos}" var="t" itemLabel="Número de torneo #{t.tipo} "/>
                 
                 </b:selectOneMenu>
                 

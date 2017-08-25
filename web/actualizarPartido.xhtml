@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Administrador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,400italic,700' rel='stylesheet' type='text/css'/>
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css"/>
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="css/icomoon.css"/>
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href="css/magnific-popup.css"/>
+
+        <!-- Owl Carousel  -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+
+        <!-- Theme style  -->
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/styles.css"/>
+
+        <!-- Modernizr JS -->
+        <script src="js/modernizr-2.6.2.min.js"></script>
+    </h:head>
+    <body>
+        <b:messages showSummary="true" show-detail="true"/>
+        <b:message for="form-editar" showSummary="true" show-detail="true"/>
+        <b:form id="form-editar" prependId="false">
+            <legend>Actualizar partido</legend>
+            <h:outputText value="Ronda: "/>
+            <b:inputText value="#{modificarController.partidoSeleccionado.ronda}" disabled="true"/>
+            <h:outputText value="Jugador 1: "/>
+            <b:inputText value="#{modificarController.partidoSeleccionado.jugador1}" disabled="true"/>
+            <h:outputText value="Resultado 1: "/>
+            <b:inputText value="#{modificarController.partidoSeleccionado.resultado1}"/>
+            <h:outputText value="Jugador 2: "/>
+            <b:inputText value="#{modificarController.partidoSeleccionado.jugador2}" disabled="true" />
+            <h:outputText value="Resultado 2: "/>
+            <b:inputText value="#{modificarController.partidoSeleccionado.resultado2}"/>
+
+
+            <h:link  style="margin-left: 20%;" styleClass="btn btn-primary" outcome="/partidos.xhtml" value="Volver"/>
+            <b:commandButton style="margin-left: 30%;" value="Guardar" icon="floppy-disk" actionListener="#{modificarController.actulaizarDatos()}"/>
+
+        </b:form>
+    </body>
+</html>

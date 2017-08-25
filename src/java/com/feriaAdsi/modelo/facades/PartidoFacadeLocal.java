@@ -5,6 +5,7 @@
  */
 package com.feriaAdsi.modelo.facades;
 
+import com.feriaAdsi.modelo.entities.Inscripcion;
 import com.feriaAdsi.modelo.entities.Partido;
 import java.util.List;
 import javax.ejb.Local;
@@ -29,5 +30,6 @@ public interface PartidoFacadeLocal {
     List<Partido> findRange(int[] range);
 
     int count();
+    
     
 }

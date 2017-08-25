@@ -163,7 +163,7 @@ public class Inscripcion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.feriaAdsi.modelo.entities.Inscripcion[ idInscripcion=" + idInscripcion + " ]";
+        return "Jugador: "+ " " +jugador;
     }
     
 }

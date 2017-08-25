@@ -44,8 +44,8 @@ and open the template in the editor.
         
         
                 <b:messages globalOnly="true" showDetail="true" showSummary="true"/>
-        <div id="fondo-form" style="margin-left: 5%; width: 90%; height: 100%; background-color: #666666; margin-top: 3%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
-            <legend style="width: 90%; margin-left: 5%; color: #fff;">Nuevo Torneo</legend>
+        <div id="fondo-form" style="margin-left: 5%; width: 90%; height: 100%; background-color: #fff; margin-top: 3%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
+            <legend style="width: 90%;color: #000;">Eliminatorias Halo Reach</legend>
             <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 0; color: #fff;">
                 <b:dataTable value="#{partidosRegistroHaloController.jugadores}" var="j" style="color: black;">
                     <b:dataTableColumn value="#{j.jugador.nombre}" /> 
@@ -64,7 +64,7 @@ and open the template in the editor.
                 
                 <br></br>
                 
-                <h:link class="btn btn-success" value="Volver" outcome="index.xhtml"/>
+                <h:link class="btn btn-success" value="Volver" outcome="tablaPartidos.xhtml"/>
                 
             </h:form>
         </div>

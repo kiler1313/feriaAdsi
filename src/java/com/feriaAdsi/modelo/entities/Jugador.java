@@ -146,7 +146,7 @@ public class Jugador implements Serializable {
 
     @Override
     public String toString() {
-        return "com.feriaAdsi.modelo.entities.Jugador[ documento=" + documento + " ]";
+        return  documento + " "+"Nombres: "+" "+nombre+ " "+"Apellidos: "+" "+apellido ;
     }
     
 }

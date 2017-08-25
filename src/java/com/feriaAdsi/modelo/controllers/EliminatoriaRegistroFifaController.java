@@ -98,9 +98,6 @@ public class EliminatoriaRegistroFifaController {
     
        
        public void generarPartidosA(){
-       
-           
-          
            partido1.setJugador1(grupoA.get(0));
            partido1.setResultado1(0);
            partido1.setResultado2(0);
