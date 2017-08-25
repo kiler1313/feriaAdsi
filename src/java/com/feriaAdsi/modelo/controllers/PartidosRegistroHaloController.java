@@ -23,9 +23,9 @@ import javax.enterprise.context.RequestScoped;
  *
  * @author APRENDIZ
  */
-@Named(value = "partidosRegistroController")
+@Named(value = "partidosRegistroHaloController")
 @RequestScoped
-public class PartidosRegistroFifaController {
+public class PartidosRegistroHaloController {
 
    @EJB
    private InscripcionFacadeLocal ifl;
@@ -40,16 +40,17 @@ public class PartidosRegistroFifaController {
    private Partido nuevoPartido;
    private Inscripcion jugadorGanador;
    
-    public PartidosRegistroFifaController() {
+    public PartidosRegistroHaloController() {
         
     }
     
     @PostConstruct
     public void init(){
-        torneos = tfl.findByTipoOne("Fifa 2017");
+        torneos = tfl.findByTipoOne("Halo Reach");
         jugadorGanador = new Inscripcion();
         nuevoPartido = new Partido();
         jugadores = ifl.findByTorneo(torneos);
+        
     }
     
 

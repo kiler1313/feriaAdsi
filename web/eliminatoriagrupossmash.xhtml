@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Bienvenido</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,400italic,700' rel='stylesheet' type='text/css'/>
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css"/>
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="css/icomoon.css"/>
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href="css/magnific-popup.css"/>
+
+        <!-- Owl Carousel  -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+
+        <!-- Theme style  -->
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/styles.css"/>
+
+        <!-- Modernizr JS -->
+        <script src="js/modernizr-2.6.2.min.js"></script>
+    </h:head>
+    <h:body class="fondo-form-torneo">
+        
+        
+                <b:messages globalOnly="true" showDetail="true" showSummary="true"/>
+        <div id="fondo-form" style="margin-left: 5%; width: 90%; height: 100%; background-color: #666666; margin-top: 3%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
+            <legend style="width: 90%; margin-left: 5%; color: #fff;">Nuevo Torneo</legend>
+            <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 0; color: #fff;">
+                <div  class="col-lg-6 col-md-6">
+                    <h1>División A</h1>
+                    
+                    <b:dataTable style="color: black; background: none;" value="#{eliminatoriaRegistroSmashController.grupoA}" var="a" paginated="false" widgetVar="false">
+                        <b:dataTableColumn label="Jugadores" value="#{a.jugador.nombre} #{a.jugador.apellido}"/>
+                        <b:dataTableColumn label="Marcador" >
+                            <b:inputText />
+                        
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                
+                
+                <br></br>
+                </div>
+                
+                 <div  class="col-lg-6 col-md-6">
+                          <h1>División B</h1>
+                    
+                
+                    <b:dataTable style="color: black; background: none;" value="#{eliminatoriaRegistroSmashController.grupoB}" var="b" paginated="false" widgetVar="false">
+                        <b:dataTableColumn label="Jugadores" value="#{b.jugador.nombre} #{b.jugador.apellido}"/>
+                        <b:dataTableColumn label="Marcador">
+                            <b:inputText/>
+                        
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                
+                
+                <br></br>
+                </div>
+                
+                 <div  class="col-lg-6 col-md-6">
+                          <h1>División C</h1>
+                    
+                    <b:dataTable style="color: black; background: none;" value="#{eliminatoriaRegistroSmashController.grupoC}" var="c" paginated="false" widgetVar="false">
+                        <b:dataTableColumn label="Jugadores" value="#{c.jugador.nombre} #{c.jugador.apellido}"/>
+                        <b:dataTableColumn label="Marcador" >
+                            <b:inputText />
+                        
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                
+                
+                <br></br>
+                </div>
+                
+                 <div  class="col-lg-6 col-md-6">
+                   
+                     <h1>División D</h1>
+                    
+                    <b:dataTable style="color: black; background: none;" value="#{eliminatoriaRegistroSmashController.grupoD}" var="d" paginated="false" widgetVar="false">
+                        <b:dataTableColumn label="Jugadores" value="#{d.jugador.nombre} #{d.jugador.apellido}"/>
+                        <b:dataTableColumn label="Marcador">
+                            <b:inputText />
+                        
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                
+                
+                <br></br>
+                </div>
+                <h:link class="btn btn-success" value="Volver" outcome="index.xhtml"/>
+                
+            </h:form>
+        </div>
+        
+    </h:body>
+</html>

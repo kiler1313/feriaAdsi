@@ -33,4 +33,6 @@ public interface InscripcionFacadeLocal {
     
     List<Inscripcion> findByTorneo(Torneo torneo);
     
+    List<Inscripcion> findByGrupo (String grupo, Torneo torneo);
+    
 }

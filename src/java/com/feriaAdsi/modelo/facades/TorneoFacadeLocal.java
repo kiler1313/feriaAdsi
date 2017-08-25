@@ -32,4 +32,5 @@ public interface TorneoFacadeLocal {
     
     List<Torneo> findByTipo(String tipo);
     
+    Torneo findByTipoOne (String tipo);
 }

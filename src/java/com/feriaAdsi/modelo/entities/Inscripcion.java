@@ -20,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -34,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Inscripcion.findAll", query = "SELECT i FROM Inscripcion i"),
     @NamedQuery(name = "Inscripcion.findByIdInscripcion", query = "SELECT i FROM Inscripcion i WHERE i.idInscripcion = :idInscripcion"),
     @NamedQuery(name = "Inscripcion.findByTorneo", query = "SELECT i FROM Inscripcion i WHERE i.torneo = :torneo"),
+    @NamedQuery(name = "Inscripcion.findByGrupo", query = "SELECT i FROM Inscripcion i WHERE i.grupo = :grupo AND i.torneo = :torneo"),
     @NamedQuery(name = "Inscripcion.findByGanador", query = "SELECT i FROM Inscripcion i WHERE i.ganador = :ganador")})
 public class Inscripcion implements Serializable {
 
@@ -45,6 +47,11 @@ public class Inscripcion implements Serializable {
     private Integer idInscripcion;
     @Column(name = "ganador")
     private Integer ganador;
+    @Size(max = 1)
+    @Column(name = "grupo")
+    private String grupo;
+    @Column(name = "puntaje")
+    private Integer puntaje;
     @JoinColumn(name = "jugador", referencedColumnName = "documento")
     @ManyToOne(optional = false)
     private Jugador jugador;
@@ -75,6 +82,16 @@ public class Inscripcion implements Serializable {
         return ganador;
     }
 
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
+    
+    
+
     public void setGanador(Integer ganador) {
         this.ganador = ganador;
     }
@@ -94,6 +111,17 @@ public class Inscripcion implements Serializable {
     public void setTorneo(Torneo torneo) {
         this.torneo = torneo;
     }
+
+    public Integer getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(Integer puntaje) {
+        this.puntaje = puntaje;
+    }
+    
+    
+    
 
     @XmlTransient
     public List<Partido> getPartidoList() {

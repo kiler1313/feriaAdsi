@@ -44,14 +44,22 @@ and open the template in the editor.
         
         
                 <b:messages globalOnly="true" showDetail="true" showSummary="true"/>
-        <div id="fondo-form" style="margin-left: 30%; width: 40%; height: 80%; background-color: #666666; margin-top: 15%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
+        <div id="fondo-form" style="margin-left: 5%; width: 90%; height: 100%; background-color: #666666; margin-top: 3%; opacity: 0.9; border-radius:10px 10px 10px 10px; ">
             <legend style="width: 90%; margin-left: 5%; color: #fff;">Nuevo Torneo</legend>
-            <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 25%; color: #fff;">
-                <c:forEach items="#{partidosRegistroController.jugadores}" var="j">
-                    <h:outputText value="#{j.jugador.nombre}"/>
-                    <h:outputText value="#{j.jugador.nombre}"/>
+            <h:form class="form-group" style="width: 100%; height: 40%; margin-left: 0; color: #fff;">
+                <b:dataTable value="#{partidosRegistroController.jugadores}" var="j" style="color: black;">
+                    <b:dataTableColumn value="#{j.jugador.nombre}" /> 
+                    <b:dataTableColumn value="#{j.jugador.apellido}" /> 
+                    <b:dataTableColumn value="#{j.jugador.ficha}" /> 
+                    <b:dataTableColumn value="#{j.jugador.programa}" /> 
+                    <b:dataTableColumn label="Opciones" style="max-width: 130px;"  >
+                        <h:commandButton  class="btn btn-success" value="A" action="#{partidosRegistroController.registrarGrupoA(j)}" />
+                        <h:commandButton  class="btn btn-success" value="B" action="#{partidosRegistroController.registrarGrupoB(j)}" />
+                        <h:commandButton  class="btn btn-success" value="C" action="#{partidosRegistroController.registrarGrupoC(j)}"/>
+                        <h:commandButton  class="btn btn-success" value="D" action="#{partidosRegistroController.registrarGrupoD(j)}"/>
+                    </b:dataTableColumn> 
                     
-                </c:forEach>
+                </b:dataTable>
                 
                 
                 <br></br>

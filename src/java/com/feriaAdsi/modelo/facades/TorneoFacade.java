@@ -49,5 +49,24 @@ public class TorneoFacade extends AbstractFacade<Torneo> implements TorneoFacade
             
 
     }
+
+    @Override
+    public Torneo findByTipoOne(String tipo) {
+        
+        try {
+            getEntityManager().getEntityManagerFactory().getCache().evictAll();
+            TypedQuery<Torneo> q = getEntityManager().createNamedQuery("Torneo.findByTipo", Torneo.class);
+            q.setParameter("tipo", tipo);
+    
+            return q.getSingleResult();
+        } catch (Exception e) {
+            System.out.println("No se encontro ningún torneo con ese tipo");
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+    
+    
     
 }

@@ -47,5 +47,22 @@ public class InscripcionFacade extends AbstractFacade<Inscripcion> implements In
         }
 
     }
+
+    @Override
+    public List<Inscripcion> findByGrupo(String grupo, Torneo torneo) {
+        
+           
+        try {
+            getEntityManager().getEntityManagerFactory().getCache().evictAll();
+            TypedQuery<Inscripcion> i = getEntityManager().createNamedQuery("Inscripcion.findByGrupo", Inscripcion.class);
+            i.setParameter("grupo", grupo);
+            i.setParameter("torneo", torneo);
+            return i.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Fallo la busqueda de la inscripcion por torneo y grupo");
+            return null;
+        }
+    }
     
 }
